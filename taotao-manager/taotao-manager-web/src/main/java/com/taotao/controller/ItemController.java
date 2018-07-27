@@ -30,4 +30,5 @@ public class ItemController {
         EasyUIDataGridResult result = itemService.getItemList(page,rows);
         return result;
     }
+
 }

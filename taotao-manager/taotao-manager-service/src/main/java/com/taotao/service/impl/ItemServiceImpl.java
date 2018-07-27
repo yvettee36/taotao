@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
+ * 商品信息管理
  * Created by yvettee on 2018/7/24.
  */
 @Service
