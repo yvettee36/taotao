@@ -41,6 +41,7 @@ public class ItemCatServiceImpl implements ItemCatService {
             node.setState(tbItemCat.getIsParent() ? "closed" : "open");
             resultList.add(node);
         }
+        System.out.println("resultList:" + resultList);
 
         return resultList;
     }
