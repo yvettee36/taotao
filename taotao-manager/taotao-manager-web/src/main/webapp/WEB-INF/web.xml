@@ -7,6 +7,18 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+
+  <!-- log4j配置文件位置 -->
+  <context-param>
+    <param-name>log4jConfigLocation</param-name>
+    <param-value>classpath:properties/log4j.properties</param-value>
+  </context-param>
+
+  <!-- 利用spring来使用log4j -->
+  <listener>
+    <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+  </listener>
+
   <!-- 初始化spring容器 -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
