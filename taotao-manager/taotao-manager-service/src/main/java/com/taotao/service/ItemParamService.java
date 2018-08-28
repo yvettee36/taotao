@@ -1,6 +1,7 @@
 package com.taotao.service;
 
 import com.taotao.common.pojo.EasyUIDataGridResult;
+import com.taotao.common.pojo.TaotaoResult;
 
 /**
  * 规格参数
@@ -9,4 +10,6 @@ import com.taotao.common.pojo.EasyUIDataGridResult;
 public interface ItemParamService {
 
     EasyUIDataGridResult getItemParamList(int page, int rows);
+
+    TaotaoResult getItemParamByCid(Long cid);
 }

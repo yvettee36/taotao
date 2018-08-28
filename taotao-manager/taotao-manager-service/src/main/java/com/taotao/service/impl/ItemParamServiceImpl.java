@@ -3,6 +3,7 @@ package com.taotao.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.taotao.common.pojo.EasyUIDataGridResult;
+import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.mapper.TbItemParamMapper;
 import com.taotao.pojo.TbItemParam;
 import com.taotao.pojo.TbItemParamExample;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
+ * 商品规格参数模板管理Service
  * Created by yvettee on 18-8-24.
  */
 @Service
@@ -40,5 +42,23 @@ public class ItemParamServiceImpl implements ItemParamService {
         result.setRows(list);
 
         return result;
+    }
+
+    @Override
+    public TaotaoResult getItemParamByCid(Long cid) {
+        //根据cid查询规格参数模板
+        TbItemParamExample tbItemParamExample = new TbItemParamExample();
+        TbItemParamExample.Criteria criteria = tbItemParamExample.createCriteria();
+        criteria.andItemCatIdEqualTo(cid);
+
+        //执行查询
+        List<TbItemParam> list = tbItemParamMapper.selectByExample(tbItemParamExample);
+
+        if (list != null && list.size() > 0) {
+            TbItemParam tbItemParam = list.get(0);
+            return TaotaoResult.ok(tbItemParam);
+        }
+
+        return TaotaoResult.ok();
     }
 }
