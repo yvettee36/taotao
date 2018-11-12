@@ -12,4 +12,6 @@ public interface ItemParamService {
     EasyUIDataGridResult getItemParamList(int page, int rows);
 
     TaotaoResult getItemParamByCid(Long cid);
+
+    TaotaoResult insertItemparParam(Long cid, String paramData);
 }

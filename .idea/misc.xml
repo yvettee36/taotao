@@ -6,9 +6,13 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
+        <option value="$PROJECT_DIR$/taotao-manager/taotao-manager-dao/pom.xml" />
         <option value="$PROJECT_DIR$/taotao-common/pom.xml" />
+        <option value="$PROJECT_DIR$/taotao-manager/taotao-manager-web/pom.xml" />
+        <option value="$PROJECT_DIR$/taotao-manager/taotao-manager-service/pom.xml" />
         <option value="$PROJECT_DIR$/taotao-manager/pom.xml" />
         <option value="$PROJECT_DIR$/taotao-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/taotao-manager/taotao-manager-pojo/pom.xml" />
       </list>
     </option>
   </component>

@@ -11,6 +11,7 @@ import com.taotao.service.ItemParamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,7 +33,6 @@ public class ItemParamServiceImpl implements ItemParamService {
 //        List<TbItemParam> list = this.tbItemParamMapper.selectByExample(tbItemParamExample);
         //返回的是大文本数据，所以应该调用查询大文本的方法
         List<TbItemParam> list = this.tbItemParamMapper.selectByExampleWithBLOBs(tbItemParamExample);
-
         //取分页信息
         PageInfo<TbItemParam> pageInfo = new PageInfo<TbItemParam>(list);
 
@@ -59,6 +59,19 @@ public class ItemParamServiceImpl implements ItemParamService {
             return TaotaoResult.ok(tbItemParam);
         }
 
+        return TaotaoResult.ok();
+    }
+
+    @Override
+    public TaotaoResult insertItemparParam(Long cid, String paramData) {
+        //创建一个pojo
+        TbItemParam tbItemParam = new TbItemParam();
+        tbItemParam.setItemCatId(cid);
+        tbItemParam.setParamData(paramData);
+        tbItemParam.setCreated(new Date());
+        tbItemParam.setUpdated(new Date());
+
+        tbItemParamMapper.insert(tbItemParam);
         return TaotaoResult.ok();
     }
 }
