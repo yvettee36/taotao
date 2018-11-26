@@ -18,6 +18,9 @@
 <script>
 
 	function formatItemParamData(value , index){
+	    if(value == null || value == ""){
+            return "暂无数据";
+        }
 		var json = JSON.parse(value);
 		var array = [];
 		$.each(json,function(i,e){

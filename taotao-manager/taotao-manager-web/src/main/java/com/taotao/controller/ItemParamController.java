@@ -29,6 +29,12 @@ public class ItemParamController {
         return result;
     }
 
+
+    /**
+     * 通过商品类目id获取规格参数模板
+     * @param cid
+     * @return
+     */
     @RequestMapping("/query/itemcatid/{cid}")
     @ResponseBody
     public TaotaoResult getItemParamByCid(@PathVariable Long cid) {
@@ -37,6 +43,12 @@ public class ItemParamController {
         return result;
     }
 
+    /**
+     * 插入规格参数模板
+     * @param cid
+     * @param paramData
+     * @return
+     */
     @RequestMapping("/save/{cid}")
     @ResponseBody
     public TaotaoResult insertItemParam(@PathVariable Long cid,String paramData) {

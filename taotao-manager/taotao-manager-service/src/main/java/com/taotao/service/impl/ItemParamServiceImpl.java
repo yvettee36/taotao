@@ -4,9 +4,11 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.taotao.common.pojo.EasyUIDataGridResult;
 import com.taotao.common.pojo.TaotaoResult;
+import com.taotao.mapper.TbItemParamExtendMapper;
 import com.taotao.mapper.TbItemParamMapper;
 import com.taotao.pojo.TbItemParam;
 import com.taotao.pojo.TbItemParamExample;
+import com.taotao.pojo.TbItemParamExtend;
 import com.taotao.service.ItemParamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,17 +26,31 @@ public class ItemParamServiceImpl implements ItemParamService {
     @Autowired
     private TbItemParamMapper tbItemParamMapper;
 
+    @Autowired
+    private TbItemParamExtendMapper tbItemParamExtendMapper;
+
     @Override
     public EasyUIDataGridResult getItemParamList(int page, int rows) {
         //分页处理
         PageHelper.startPage(page, rows);
-        //执行查询
+
+
+       /* //执行查询
         TbItemParamExample tbItemParamExample = new TbItemParamExample();
-//        List<TbItemParam> list = this.tbItemParamMapper.selectByExample(tbItemParamExample);
         //返回的是大文本数据，所以应该调用查询大文本的方法
         List<TbItemParam> list = this.tbItemParamMapper.selectByExampleWithBLOBs(tbItemParamExample);
-        //取分页信息
+       */
+
+        //使用自定义查询，增加商品类目的查询结果
+        List<TbItemParamExtend> list = this.tbItemParamExtendMapper.selectItemParamExtendList();
+
+       /* //取分页信息
         PageInfo<TbItemParam> pageInfo = new PageInfo<TbItemParam>(list);
+       */
+
+        //取分页信息
+        System.out.println(list.size());
+        PageInfo<TbItemParamExtend> pageInfo = new PageInfo<TbItemParamExtend>(list);
 
         //返回处理结果
         EasyUIDataGridResult result = new EasyUIDataGridResult();
