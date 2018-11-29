@@ -68,7 +68,7 @@ public class ItemParamServiceImpl implements ItemParamService {
         criteria.andItemCatIdEqualTo(cid);
 
         //执行查询
-        List<TbItemParam> list = tbItemParamMapper.selectByExample(tbItemParamExample);
+        List<TbItemParam> list = tbItemParamMapper.selectByExampleWithBLOBs(tbItemParamExample);
 
         if (list != null && list.size() > 0) {
             TbItemParam tbItemParam = list.get(0);
